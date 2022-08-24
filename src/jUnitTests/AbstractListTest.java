@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import algorithm_implementation.BubbleSort;
+import algorithm_implementation.InsertionSort;
+import algorithm_implementation.SelectionSort;
 import datastructure_interface.List;
 
 abstract class AbstractListTest<T extends Comparable<T>> {
@@ -167,21 +169,45 @@ abstract class AbstractListTest<T extends Comparable<T>> {
 	}
 	
 	@Test
-	void testsort() {
+	void testBubbleSort() {
 		li.insert(5);
-		li.insert(2);
 		li.insert(2);
 		li.insert(2);
 		li.insert(4);
 		li.sort(new BubbleSort<Integer>());
+//		for (int elem : li) {
+//			System.out.println(elem);
+//		}
+		assertTrue(li.get(1).compareTo(li.get(0)) == 0 && li.get(2).compareTo(li.get(1)) >0 && li.get(3).compareTo(li.get(2)) >0);
+	}
+	
+	@Test
+	void testSelectionSort() {
+		li.insert(5);
+		li.insert(2);
+		li.insert(2);
+		li.insert(4);
+		li.sort(new SelectionSort<Integer>());
+//		for (int elem : li) {
+//			System.out.println(elem);
+//		}
+		assertTrue(li.get(1).compareTo(li.get(0)) == 0 && li.get(2).compareTo(li.get(1)) >0 && li.get(3).compareTo(li.get(2)) >0);
+	}
+	
+	@Test
+	void testInsertionSort() {
+		li.insert(5);
+		li.insert(2);
+		li.insert(2);
+		li.insert(4);
+		li.sort(new InsertionSort<Integer>());
 		for (int elem : li) {
 			System.out.println(elem);
 		}
-		for (int i = 1; i<li.size();i++) {
-			assertTrue(li.get(i)>i-1);
-		}
+		assertTrue(li.get(1).compareTo(li.get(0)) == 0 && li.get(2).compareTo(li.get(1)) >0 && li.get(3).compareTo(li.get(2)) >0);
 	}
-		
+	
+
 
 
 }

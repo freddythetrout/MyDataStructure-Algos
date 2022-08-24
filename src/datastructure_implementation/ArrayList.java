@@ -126,7 +126,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T>, Iterable<T> 
 
 		@Override
 		public boolean hasNext() {
-			return currentPosition <= count;
+			return currentPosition < count;
 		}
 
 		@Override
@@ -146,7 +146,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T>, Iterable<T> 
 
 	@Override
 	public void sort(SortAlgorithm<T> sortAlgo) {
-		// TODO Auto-generated method stub
+		sortAlgo.sortThisList(this);
 	}
 
 }
